@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>texas voucher analysis</title>
+    <script type="module" crossorigin src="./assets/index-DCq7udug.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-BFv3hW2s.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-Bj1aDYRI.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-B3qBwwSJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-BqBOg78p.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-BR0C1MaI.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D_rSvXvJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-BMPhtTJQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-C92Rrpmf.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CRZ52CKf.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-DVodi8oQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-Dz_KRrWq.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-DCUzRj2J.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-IqsYSyWB.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-D9nb17Rw.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CSu739Rf.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BDxedMYP.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-CwUpDHG7.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BoOh2kN5.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-D5guW7EU.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-BH35Ndha.js">
+    <link rel="modulepreload" crossorigin href="./assets/x-C-6liIBr.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-5i7URBEn.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-Gcwqb_SK.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-PYIpV284.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-D91BmmQi.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-BUdrueMv.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-DvLSfCY5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-DKD1r8uL.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-_9WLTEyt.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-H_cgTO0M.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-DIGrmLDO.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-Bk0r4KDZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-CCkGk34L.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-C2V-hXrK.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-DMpttj8Q.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DdhIEena.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-Calf6e81.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-DIwGYs0l.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-DieWOfXE.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-DfoVjkkH.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-AmxLvSQ5.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-DYDL-3-i.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-md4mFbOQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-DRroIaBz.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-C_FLIcjP.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-1ePoj7v6.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-DsQUzvvb.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BrR4M-k3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-HlsDto3K.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CHcznzB-.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-idZNafp8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DfWgLTCQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-G3xLh7ZX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BwejP-9J.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Dg3CCt0r.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-C9ZB41s2.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex--zUcZkER.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-B5A0DFEz.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-Cg0r2qW-.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-BRGiG41H.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BT6B8Bon.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-CsYTPAhW.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-DhnxH9Rh.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-kIkTfzTX.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-B0OX4z33.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BA9ZN5Xy.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-DzYV_VeY.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-DSY6_TYl.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-BHZ1EjqC.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-BGBdrcqJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-CqE8CV1Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-BxKDvvzN.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-epUg4eUW.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-1sSrgJwI.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BrNoqz7t.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-D_mZTdYK.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-Cj1lHaxt.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-2egRGOhT.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-CAFE3UV7.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-owqfXuA4.js">
+    <link rel="modulepreload" crossorigin href="./assets/multi-map-rafH3cg3.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-DD-RU0QZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-CG5QYXYk.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-D1A3cFC8.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-D-VMsA11.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-cIxqHRwZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BnK_ki61.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BwrPA9zQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-D189KR4Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-aOmkRy0R.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-BZ77nRPA.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-SzKMGrBW.js">
+    <link rel="modulepreload" crossorigin href="./assets/sparkles-BRTQ46qC.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-CUkxKVSp.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-jEqwgi_c.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-BOWUS6J2.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-BRfyPUhi.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-BRNkjHs1.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-BYkSpfWg.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-8Uk-uN5W.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-wbiBygI_.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-3M2UXZOE.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-DQS2IzwJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-UExmgBsf.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-DVkmLSXX.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-rCRPD7IF.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-CZ3rujd6.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-Bqipv_jK.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-BxlXxssi.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-CQbVJYLi.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-B8TXLgVt.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-KoNx_uxe.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-CtmdgiVR.js">
+    <link rel="modulepreload" crossorigin href="./assets/maps-C48Oksn0.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-q1GgI0Ag.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-UWgehH47.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-_XK-fjTQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-B8rtE4cC.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-6NxtGaCm.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-KAhMaCIV.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-QFYtD-Lc.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-xQHRvEag.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-sWUD3O5F.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-nqk474t8.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DN3RwIjj.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-6oUobewY.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-vertical-CkwWkOQL.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-BmiNHssk.js">
+    <link rel="modulepreload" crossorigin href="./assets/components-eaRIBPb2.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-BbSZl4gC.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-C66kZH_4.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DzcyDJwQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-xtQoaf-X.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-BQlZis3f.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-CcSYdGmP.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-n1Li95bE.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-BueqiM86.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-BBLUUIbP.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-BrQspHac.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-BrdxGLRX.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-HpSc22eh.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-CSF7UWQn.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-CqJGGLBT.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-CWUex2qo.js">
+    <link rel="modulepreload" crossorigin href="./assets/globals-DY_dRKpv.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CJEPnWjm.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-CpeNXBj-.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-Tp7rARFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-C-qh_et5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-CxV9N1bc.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-BFFSWzNE.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-DTR8T0AE.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-D2liylO5.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-BuMhEaS9.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-C5AzNaHr.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-BUVFJb5I.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-B-72v1dC.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-Dpiu3eud.js">
+    <link rel="modulepreload" crossorigin href="./assets/RSPContexts-CrATdGvz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-D2Wc5G49.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-pHFuC8FJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-Bpx1EWqM.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-Bzn96tYq.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-D9vVr8W2.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-CjWf0wU3.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-DiS_ryrS.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-Dl4V1ub3.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-DqWUNly1.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-CZN6vNxu.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-k2WwJdZy.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-CBEvAwaa.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-sq57iaa5.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-jmgGt1lS.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B7vuddcd.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BuOIqA8d.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.23.2%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%20The%20Coupon%20Effect%3A%20Quantifying%20Private%20School%20Subsidy%20with%20the%20Texas%20Vouchers%0A%0A%20%20%20%20When%20discussing%20the%20impact%20of%20school%20vouchers%2C%20the%20conversation%20often%20revolves%20around%20the%20total%20number%20of%20applications.%20But%20as%20Fort%20Worth%20parents%2C%20we%20need%20to%20ask%20a%20deeper%20question%3A%20**Are%20these%20vouchers%20%22saving%22%20students%20from%20underperforming%20public%20schools%2C%20or%20are%20they%20primarily%20subsidizing%20families%20who%20have%20already%20chosen%20private%20education%20or%20homeschooling%3F**%0A%0A%20%20%20%20By%20looking%20beyond%20the%20raw%20application%20numbers%20and%20calculating%20the%20Delta%20between%20Total%20Applications%20and%20Public%20Applications%2C%20we%20can%20reveal%20the%20true%20story.%20We%20call%20this%20the%20**Coupon%20Effect**.%0A%0A%20%20%20%20%23%23%23%20The%20Math%0A%20%20%20%20**The%20Query**%3A%20%60(Total%20Apps%20-%20Public%20Apps)%20%2F%20Total%20Apps%60%0A%0A%20%20%20%20%23%23%23%20Why%20It%20Matters%0A%20%20%20%20This%20metric%20identifies%20districts%20where%20the%20voucher%20is%20functioning%20more%20like%20a%20%22tax%20coupon%22%20for%20families%20already%20outside%20the%20public%20system.%0A%0A%20%20%20%20%23%23%23%20The%20Nerd%20Factor%0A%20%20%20%20A%20high%20percentage%20here%20strongly%20suggests%20the%20program%20isn't%20rescuing%20students%20from%20public%20schools%2C%20but%20rather%20subsidizing%20existing%20private%20choices.%20Below%2C%20we%20dive%20into%20the%20data%20to%20compare%20this%20Coupon%20Effect%20against%20a%20proxy%20for%20the%20district's%20median%20household%20income%20(the%20percentage%20of%20students%20*not*%20economically%20disadvantaged).%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20polars%20as%20pl%0A%20%20%20%20import%20altair%20as%20alt%0A%0A%20%20%20%20return%20alt%2C%20mo%2C%20pl%0A%0A%0A%40app.cell%0Adef%20_(pl)%3A%0A%20%20%20%20total_voucher_apps%20%3D%20pl.read_json('voucher-applications-by-isd.json')%0A%20%20%20%20prev_pub_voucher_apps%20%3D%20pl.read_json('previous-public-school-applications.json')%0A%20%20%20%20tapr_district_reference%20%3D%20pl.read_csv('2025%20District%20Reference.csv'%2C%20skip_lines%3D1)%0A%20%20%20%20tapr_district_student%20%3D%20pl.read_csv('2025%20District%20Student%20Information.csv'%2C%20skip_lines%3D1)%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20prev_pub_voucher_apps%2C%0A%20%20%20%20%20%20%20%20tapr_district_reference%2C%0A%20%20%20%20%20%20%20%20tapr_district_student%2C%0A%20%20%20%20%20%20%20%20total_voucher_apps%2C%0A%20%20%20%20)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%20Gathering%20the%20Data%0A%0A%20%20%20%20To%20answer%20this%2C%20we%20need%20to%20combine%20two%20main%20data%20sources%3A%0A%20%20%20%201.%20**Texas%20Voucher%20Application%20Data**%3A%20The%20total%20number%20of%20voucher%20applications%20and%20the%20subset%20from%20families%20whose%20children%20were%20previously%20enrolled%20in%20a%20Texas%20public%20school.%0A%20%20%20%202.%20**Texas%20Academic%20Performance%20Reports%20(TAPR)%20Data**%3A%20Specifically%2C%20the%202024-2025%20student%20information%2C%20which%20provides%20us%20with%20total%20enrollments%20and%20the%20counts%20of%20economically%20disadvantaged%20students%20per%20district.%0A%0A%20%20%20%20We%20calculate%20the%20%60pct_not_econ_disadv%60%20metric%20to%20proxy%20median%20household%20income%20for%20the%20district.%20The%20higher%20this%20percentage%2C%20the%20generally%20wealthier%20the%20district.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(pl%2C%20tapr_district_reference%2C%20tapr_district_student)%3A%0A%20%20%20%20tapr_student_selected%20%3D%20tapr_district_student.select(%0A%20%20%20%20%20%20%20%20'DISTRICT'%2C%20'DPETALLC'%2C%20'DPETSPEC'%2C%20'DPETECOC'%2C%20'DPETNEDC'%20%0A%20%20%20%20)%0A%0A%20%20%20%20tapr_district_data%20%3D%20tapr_district_reference.select(%0A%20%20%20%20%20%20%20%20'DISTRICT'%2C%20'DISTNAME'%2C%20'DFLCHART'%2C%20'D_RATING'%2C%20'OUTCOME'%2C%20'COUNTY'%0A%20%20%20%20).join(tapr_student_selected%2C%20on%3D'DISTRICT').select(%0A%20%20%20%20%20%20%20%20pl.col('DISTRICT').alias('district_number')%2C%0A%20%20%20%20%20%20%20%20pl.col('COUNTY').alias('county_number')%2C%0A%20%20%20%20%20%20%20%20pl.col('DISTNAME').alias('district_name')%2C%0A%20%20%20%20%20%20%20%20pl.col('DFLCHART').alias('charter_flag')%2C%0A%20%20%20%20%20%20%20%20pl.col('D_RATING').alias('district_overall_grade')%2C%0A%20%20%20%20%20%20%20%20pl.col('OUTCOME').alias('district_spec_ed_status')%2C%0A%20%20%20%20%20%20%20%20pl.col('DPETALLC').alias('all_student_count')%2C%0A%20%20%20%20%20%20%20%20pl.col('DPETSPEC').alias('spec_ed_count')%2C%0A%20%20%20%20%20%20%20%20pl.col('DPETECOC').alias('econ_disadv_count')%2C%0A%20%20%20%20%20%20%20%20pl.col('DPETNEDC').alias('not_econ_disadv_count')%2C%0A%20%20%20%20).with_columns(%0A%20%20%20%20%20%20%20%20pct_not_econ_disadv%3Dpl.col('not_econ_disadv_count')%20%2F%20pl.col('all_student_count')%0A%20%20%20%20)%0A%20%20%20%20return%20(tapr_district_data%2C)%0A%0A%0A%40app.cell%0Adef%20_(tapr_district_data)%3A%0A%20%20%20%20print(tapr_district_data.schema)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(prev_pub_voucher_apps%2C%20total_voucher_apps)%3A%0A%20%20%20%20print(%22Total%20Apps%3A%22%2C%20len(total_voucher_apps))%0A%20%20%20%20print(%22Prev%20Pub%20Apps%3A%22%2C%20len(prev_pub_voucher_apps))%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(pl%2C%20prev_pub_voucher_apps%2C%20total_voucher_apps)%3A%0A%20%20%20%20coupon_tbl%20%3D%20total_voucher_apps.join(other%3Dprev_pub_voucher_apps%2C%20on%3D'district'%2C%20how%3D'left').rename(%7B%0A%20%20%20%20%20%20%20%20%22applications_submitted_right%22%3A%20%22previous_public_applications%22%0A%20%20%20%20%7D).with_columns(%0A%20%20%20%20%20%20%20%20pl.col('previous_public_applications').fill_null(0)%0A%20%20%20%20).with_columns(%0A%20%20%20%20%20%20%20%20coupon_applications%3Dpl.col('applications_submitted')%20-%20pl.col('previous_public_applications')%0A%20%20%20%20).with_columns(%0A%20%20%20%20%20%20%20%20coupon_rate%3Dpl.col('coupon_applications')%20%2F%20pl.col('applications_submitted')%0A%20%20%20%20)%0A%20%20%20%20return%20(coupon_tbl%2C)%0A%0A%0A%40app.cell%0Adef%20_(coupon_tbl)%3A%0A%20%20%20%20print(coupon_tbl.columns)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(coupon_tbl%2C%20pl%2C%20tapr_district_data)%3A%0A%20%20%20%20_analysis_tbl_part1%20%3D%20coupon_tbl.join(tapr_district_data%2C%20left_on%3D'district'%2C%20right_on%3D'district_name')%0A%0A%20%20%20%20_analysis_tbl_part2%20%3D%20coupon_tbl.join(_analysis_tbl_part1%2C%20left_on%3D'district'%2C%20right_on%3D'district'%2C%20how%3D'anti').filter(%0A%20%20%20%20%20%20%20%20pl.col('district_number')%20!%3D%20%22%22%0A%20%20%20%20).with_columns(%0A%20%20%20%20%20%20%20%20pl.col('district_number').cast(pl.Int64)%0A%20%20%20%20).join(%0A%20%20%20%20%20%20%20%20tapr_district_data%2C%20on%3D'district_number'%0A%20%20%20%20)%0A%0A%20%20%20%20common_cols%20%3D%20%5B%0A%20%20%20%20%20%20%20%20'district_number'%2C%20'district'%2C%20'county_number'%2C%20'applications_submitted'%2C%20'previous_public_applications'%2C%20%0A%20%20%20%20%20%20%20%20'coupon_applications'%2C%20'coupon_rate'%2C%20'charter_flag'%2C%20'district_overall_grade'%2C%20%0A%20%20%20%20%20%20%20%20'district_spec_ed_status'%2C%20'all_student_count'%2C%20'spec_ed_count'%2C%20'econ_disadv_count'%2C%20%0A%20%20%20%20%20%20%20%20'not_econ_disadv_count'%2C%20'pct_not_econ_disadv'%0A%20%20%20%20%5D%0A%0A%20%20%20%20analysis_tbl%20%3D%20pl.concat(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20_analysis_tbl_part1.with_columns(pl.col(%22district_number_right%22).cast(pl.String).alias(%22district_number%22)).select(common_cols)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20_analysis_tbl_part2.with_columns(pl.col(%22district_number%22).cast(pl.String)).select(common_cols)%2C%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20how%3D%22vertical%22%0A%20%20%20%20)%0A%20%20%20%20return%20(analysis_tbl%2C)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20print(_analysis_tbl_part1.columns)%0A%20%20%20%20print(_analysis_tbl_part2.columns)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20deleted%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%20Side%20Quest%3A%20The%20Outliers%0A%20%20%20%20Before%20looking%20at%20the%20broader%20trend%2C%20a%20couple%20of%20extreme%20outliers%20in%20our%20data%20deserve%20a%20spotlight%3A%20**Roscoe%20Collegiate**%20and%20the%20**Harmony**%20charter%20school%20network.%0A%0A%20%20%20%20When%20you%20join%20the%20TAPR%20demographic%20data%20with%20the%20voucher%20applications%2C%20these%20districts%20exhibit%20strange%20and%20out-sized%20behaviors.%20Below%20is%20a%20quick%20look%20at%20their%20raw%20numbers.%20Notice%20how%20massive%20the%20application%20volume%20is%20relative%20to%20the%20student%20population%20or%20typical%20application%20rates.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(analysis_tbl%2C%20mo%2C%20pl)%3A%0A%20%20%20%20outliers_df%20%3D%20analysis_tbl.filter(pl.col('district').str.contains('(%3Fi)roscoe%7Charmony'))%0A%20%20%20%20mo.ui.table(outliers_df.select(%5B%0A%20%20%20%20%20%20%20%20'district'%2C%20'applications_submitted'%2C%20'coupon_applications'%2C%20'coupon_rate'%2C%20%0A%20%20%20%20%20%20%20%20'all_student_count'%2C%20'district_overall_grade'%2C%20'charter_flag'%0A%20%20%20%20%5D)%2C%20selection%3DNone)%0A%20%20%20%20return%20(outliers_df%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%23%20A%20Tale%20of%20Two%20Districts%0A%20%20%20%20When%20we%20peel%20back%20the%20layers%20on%20these%20two%20extreme%20outliers%2C%20an%20incredible%20narrative%20emerges.%0A%0A%20%20%20%20First%2C%20consider%20**Roscoe%20Collegiate**.%20This%20is%20a%20massive%20district%20serving%20over%2012%2C000%20students.%20Unfortunately%2C%20it%20struggles%E2%80%94carrying%20an%20overall%20**%22F%22%20rating**.%20For%20many%20families%20in%20this%20area%2C%20it%20is%20the%20only%20game%20in%20town.%20Yet%20despite%20the%20massive%20student%20body%20and%20the%20failing%20grade%2C%20only%2093%20families%20applied%20for%20a%20voucher.%20Here%2C%20the%20%22Coupon%20Effect%22%20is%20lower%20(~34%25)%2C%20indicating%20that%20a%20handful%20of%20brave%20souls%20are%20trying%20to%20exit%20a%20failing%20system%2C%20joining%20the%20small%20baseline%20of%20families%20already%20seeking%20alternative%20education.%0A%0A%20%20%20%20Then%2C%20there%20is%20**Harmony%20ISD**.%20On%20the%20surface%2C%20things%20look%20perfectly%20fine%E2%80%94it%20holds%20a%20solid%20**%22B%22%20rating**.%20But%20look%20closer%20at%20the%20sheer%20volume%20of%20applications.%20Harmony%20is%20a%20tiny%20district%20with%20a%20total%20enrollment%20of%20just%20895%20students.%20Yet%20somehow%2C%20**320%20applications**%20were%20submitted%20for%20vouchers.%20That%20means%20over%20a%20third%20of%20the%20*entire%20student%20body*%20applied%20to%20leave%20a%20supposedly%20%22good%22%20school%20district.%20It%20suggests%20a%20staggering%20mass%20exodus%20and%20raises%20serious%20questions%20about%20what%20is%20happening%20beneath%20the%20surface%20of%20that%20%22B%22%20rating.%0A%0A%20%20%20%20These%20exceptional%20outliers%20tell%20a%20fascinating%20story%20about%20how%20the%20voucher%20is%20being%20used%20at%20the%20fringes%E2%80%94either%20as%20a%20rare%20escape%20hatch%20in%20massive%20struggling%20districts%2C%20or%20as%20a%20floodgate%20in%20surprisingly%20small%20ones.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(alt%2C%20outliers_df%2C%20pl)%3A%0A%20%20%20%20%23%20Create%20FIPS%20codes%20for%20our%20outliers%0A%20%20%20%20%23%20Texas%20FIPS%20prefix%20is%2048.%20The%20county%20code%20is%20(county_number%20*%202)%20-%201%20formatted%20to%203%20digits.%0A%20%20%20%20map_df%20%3D%20outliers_df.with_columns(%0A%20%20%20%20%20%20%20%20fips%3Dpl.lit(%2248%22)%20%2B%20((pl.col('county_number')%20*%202)%20-%201).cast(pl.String).str.pad_start(3%2C%20'0')%0A%20%20%20%20)%0A%0A%20%20%20%20%23%20Fetch%20topojson%20via%20direct%20URL%20to%20avoid%20needing%20the%20vega_datasets%20python%20package%0A%20%20%20%20counties_url%20%3D%20%22https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fvega-datasets%40v1.29.0%2Fdata%2Fus-10m.json%22%0A%20%20%20%20counties%20%3D%20alt.topo_feature(counties_url%2C%20'counties')%0A%0A%20%20%20%20tx_map%20%3D%20alt.Chart(counties).mark_geoshape(%0A%20%20%20%20%20%20%20%20fill%3D'%23eee'%2C%20stroke%3D'white'%2C%20strokeWidth%3D0.5%0A%20%20%20%20).transform_filter(%0A%20%20%20%20%20%20%20%20%22datum.id%20%3E%3D%2048000%20%26%26%20datum.id%20%3C%2049000%22%20%23%20Filter%20to%20Texas%0A%20%20%20%20).encode(%0A%20%20%20%20).properties(%0A%20%20%20%20%20%20%20%20width%3D600%2C%20height%3D400%2C%0A%20%20%20%20%20%20%20%20title%3D%22Geographic%20Context%3A%20Where%20are%20the%20Outliers%3F%22%0A%20%20%20%20)%0A%0A%20%20%20%20points%20%3D%20alt.Chart(counties).mark_geoshape(%0A%20%20%20%20).transform_lookup(%0A%20%20%20%20%20%20%20%20lookup%3D'id'%2C%0A%20%20%20%20%20%20%20%20from_%3Dalt.LookupData(map_df%2C%20'fips'%2C%20%5B'district'%2C%20'applications_submitted'%2C%20'coupon_rate'%5D)%0A%20%20%20%20).transform_filter(%0A%20%20%20%20%20%20%20%20%22isValid(datum.district)%22%0A%20%20%20%20).encode(%0A%20%20%20%20%20%20%20%20color%3Dalt.Color('district%3AN'%2C%20legend%3Dalt.Legend(title%3D%22Outlier%20District%22%2C%20orient%3D'bottom'))%2C%0A%20%20%20%20%20%20%20%20tooltip%3D%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('district%3AN'%2C%20title%3D'District')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('applications_submitted%3AQ'%2C%20title%3D'Total%20Applications')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('coupon_rate%3AQ'%2C%20title%3D'Coupon%20Effect'%2C%20format%3D'.1%25')%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%0A%20%20%20%20tx_map%20%2B%20points%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%20Side%20Quest%3A%20Liberating%20the%20Data%0A%0A%20%20%20%20I'd%20be%20remiss%20if%20I%20didn't%20mention%20*how*%20we%20had%20to%20get%20this%20data.%20The%20original%20voucher%20application%20numbers%20were%20released%20in%20a%20deeply%20frustrating%20format%3A%20a%20static%20PDF%20with%20un-aligned%20columns%2C%20missing%20district%20IDs%2C%20and%20district%20names%20that%20didn't%20perfectly%20match%20the%20official%20TAPR%20reporting%20names.%0A%0A%20%20%20%20In%20my%20opinion%2C%20publishing%20public%20data%20in%20a%20clickable%20PDF%20is%20as%20good%20as%20not%20releasing%20it%20at%20all.%20Whether%20it's%20a%20symptom%20of%20intentional%20obfuscation%20or%20sheer%20negligence%20in%20the%20talent%20appointed%20to%20the%20task%2C%20it's%20unacceptable.%0A%0A%20%20%20%20We%20believe%20data%20belongs%20to%20the%20public%2C%20and%20you%20shouldn't%20have%20to%20be%20a%20data%20engineer%20to%20hold%20programs%20accountable.%20So%2C%20we've%20done%20the%20dirty%20work%20of%20parsing%2C%20cleaning%2C%20and%20joining%20the%20voucher%20applications%20with%20the%20official%20TAPR%20identifiers.%20You%20can%20explore%20or%20download%20the%20cleaned%20dataset%20right%20here.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(analysis_tbl%2C%20mo)%3A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20mo.download(%0A%20%20%20%20%20%20%20%20%20%20%20%20data%3Danalysis_tbl.write_csv().encode('utf-8')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20filename%3D'cleaned_voucher_and_tapr_data.csv'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mimetype%3D'text%2Fcsv'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3D'%E2%AC%87%EF%B8%8F%20Download%20Cleaned%20Data%20(CSV)'%0A%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20mo.ui.dataframe(analysis_tbl)%0A%20%20%20%20%5D)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(alt%2C%20analysis_tbl%2C%20pl)%3A%0A%20%20%20%20%23%20Prepare%20data%20for%20charting%0A%20%20%20%20%23%20We%20remove%20the%20extreme%20outliers%20(Roscoe%20and%20Harmony)%20to%20better%20visualize%20the%20main%20cluster%20of%20districts%0A%20%20%20%20chart_df%20%3D%20analysis_tbl.filter(%0A%20%20%20%20%20%20%20%20~pl.col('district').str.contains('(%3Fi)roscoe%7Charmony')%0A%20%20%20%20).with_columns(%0A%20%20%20%20%20%20%20%20is_fw%3D(pl.col('district').str.contains('(%3Fi)fort%20worth%7Ctarrant'))%0A%20%20%20%20).drop_nulls(%5B'pct_not_econ_disadv'%2C%20'coupon_rate'%5D)%0A%0A%20%20%20%20%23%20Create%20a%20scatter%20plot%20comparing%20wealth%20proxy%20vs%20coupon%20effect%0A%20%20%20%20scatter%20%3D%20alt.Chart(chart_df).mark_circle(opacity%3D0.7).encode(%0A%20%20%20%20%20%20%20%20x%3Dalt.X('pct_not_econ_disadv%3AQ'%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%3D'Pct%20Not%20Econ%20Disadvantaged%20(Wealth%20Proxy)'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20axis%3Dalt.Axis(format%3D'%25'))%2C%0A%20%20%20%20%20%20%20%20y%3Dalt.Y('coupon_rate%3AQ'%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%3D'Coupon%20Effect%20Rate'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20axis%3Dalt.Axis(format%3D'%25')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20scale%3Dalt.Scale(domain%3D%5B.4%2C1%5D))%2C%0A%20%20%20%20%20%20%20%20size%3Dalt.Size('applications_submitted%3AQ'%2C%20title%3D'Total%20Applications'%2C%20scale%3Dalt.Scale(range%3D%5B20%2C%201000%5D))%2C%0A%20%20%20%20%20%20%20%20color%3Dalt.Color('is_fw%3AN'%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20scale%3Dalt.Scale(domain%3D%5BTrue%2C%20False%5D%2C%20range%3D%5B'%23d95f02'%2C%20'%231b9e77'%5D)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20legend%3Dalt.Legend(title%3D'FW%20%2F%20Tarrant%20Area'))%2C%0A%20%20%20%20%20%20%20%20tooltip%3D%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('district%3AN'%2C%20title%3D'District')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('coupon_rate%3AQ'%2C%20title%3D'Coupon%20Rate'%2C%20format%3D'.1%25')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('pct_not_econ_disadv%3AQ'%2C%20title%3D'Not%20Econ%20Disadv%20(%25)'%2C%20format%3D'.1%25')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('applications_submitted%3AQ'%2C%20title%3D'Total%20Apps')%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip('coupon_applications%3AQ'%2C%20title%3D'Coupon%20Apps')%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20).properties(%0A%20%20%20%20%20%20%20%20title%3D'The%20Coupon%20Effect%20vs.%20District%20Wealth%20(Proxy)'%2C%0A%20%20%20%20%20%20%20%20width%3D700%2C%0A%20%20%20%20%20%20%20%20height%3D500%0A%20%20%20%20).interactive()%0A%0A%20%20%20%20scatter%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%23%20What%20is%20the%20data%20telling%20us%3F%0A%20%20%20%20With%20the%20extreme%20outliers%20removed%2C%20the%20true%20picture%20emerges.%20If%20these%20vouchers%20were%20genuinely%20a%20%22lifeline%22%20specifically%20for%20lower-income%20families%20seeking%20to%20exit%20underperforming%20public%20schools%2C%20we%20would%20expect%20to%20see%20a%20strong%20diagonal%20relationship%20here%E2%80%94poorer%20districts%20(lower%20on%20the%20wealth%20proxy%20X-axis)%20utilizing%20the%20vouchers%20aggressively%2C%20with%20less%20utilization%20in%20wealthier%20districts.%0A%0A%20%20%20%20**But%20that's%20not%20what%20the%20graph%20shows.**%0A%20%20%20%20Instead%2C%20we%20see%20a%20broad%2C%20horizontal%20cloud%20of%20points%20spanning%20the%20entire%20wealth%20spectrum.%20The%20%22Coupon%20Effect%22%20is%20uniformly%20high%20across%20the%20board%2C%20frequently%20sitting%20above%2050%25%20regardless%20of%20a%20district's%20median%20household%20income.%20This%20is%20powerful%20evidence%20that%20the%20voucher%20is%20functioning%20exactly%20as%20we%20suspected%3A%20primarily%20as%20a%20subsidy%E2%80%94a%20%22tax%20coupon%22%E2%80%94for%20a%20massive%20segment%20of%20families%20who%20were%20already%20opting%20out%20of%20the%20public%20school%20system%20anyway.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.23.2",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>
